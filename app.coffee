@@ -33,7 +33,7 @@ clickBox = new Layer
 # noSymbol.backgroundColor = 'transparent'
 	
 # Creating arrays to cycle through
-phrases = [notForMe, likedIt, lovedIt]
+phrases = [likedIt, lovedIt, notForMe]
 symbols = [frown, okay, heart]
 numberOfCycles = phrases.length
 
@@ -53,14 +53,14 @@ okay.rotationZ = -90
 symbolAnimationTime = .1
 phraseAnimationTime = .2
 
-alertNotActive = true
+alertActive = false
 
 i = 0
 j = 0
 
 clickBox.on Events.Click, ->
 	modulusS = i % numberOfCycles
-	if i == 1 then openScreen() else
+	if modulusS == 1 && alertActive == false then openScreen() else if alertActive then closeScreen()
 	
 	noRating.animate
 		properties:
@@ -119,8 +119,8 @@ secondAnimation = (phrase) ->
 alertYSlide = 70
 alertTime = .15
 openScreen = ->
-	alertNotActive = false
-	utils.delay 2.5, ->
+	alertActive = true
+	utils.delay 1.5, ->
 		clickBox.animate
 			properties:
 				y: clickBox.y + alertYSlide
@@ -178,63 +178,63 @@ openScreen = ->
 				y: (myLayers.header.y + alertYSlide)
 			time: alertTime			
 			
-# closeScreen = ->
-# 	alertNotActive = true
-# 	utils.delay 1.5, ->
-# 		clickBox.animate
-# 			properties:
-# 				y: clickBox.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.wineLabel.animate
-# 			properties:
-# 				y: myLayers.wineLabel.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.buy.animate
-# 			properties:
-# 				y: myLayers.buy.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.gift.animate
-# 			properties:
-# 				y: myLayers.gift.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.lovedIt.animate
-# 			properties:
-# 				y: myLayers.lovedIt.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.heart.animate
-# 			properties:
-# 				y: myLayers.heart.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.likedIt.animate
-# 			properties:
-# 				y: myLayers.likedIt.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.okay.animate
-# 			properties:
-# 				y: myLayers.okay.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.notForMe.animate
-# 			properties:
-# 				y: myLayers.notForMe.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.frown.animate
-# 			properties:
-# 				y: myLayers.frown.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.wineDetails.animate
-# 			properties:
-# 				y: myLayers.wineDetails.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.filters.animate
-# 			properties:
-# 				y: myLayers.filters.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.menu.animate
-# 			properties:
-# 				y: myLayers.menu.y - alertYSlide
-# 			time: alertTime
-# 		myLayers.header.animate
-# 			properties:
-# 				y: (myLayers.header.y - alertYSlide)
-# 			time: alertTime			
+closeScreen = ->
+	alertActive = false
+	utils.delay 1.5, ->
+		clickBox.animate
+			properties:
+				y: clickBox.y - alertYSlide
+			time: alertTime
+		myLayers.wineLabel.animate
+			properties:
+				y: myLayers.wineLabel.y - alertYSlide
+			time: alertTime
+		myLayers.buy.animate
+			properties:
+				y: myLayers.buy.y - alertYSlide
+			time: alertTime
+		myLayers.gift.animate
+			properties:
+				y: myLayers.gift.y - alertYSlide
+			time: alertTime
+		myLayers.lovedIt.animate
+			properties:
+				y: myLayers.lovedIt.y - alertYSlide
+			time: alertTime
+		myLayers.heart.animate
+			properties:
+				y: myLayers.heart.y - alertYSlide
+			time: alertTime
+		myLayers.likedIt.animate
+			properties:
+				y: myLayers.likedIt.y - alertYSlide
+			time: alertTime
+		myLayers.okay.animate
+			properties:
+				y: myLayers.okay.y - alertYSlide
+			time: alertTime
+		myLayers.notForMe.animate
+			properties:
+				y: myLayers.notForMe.y - alertYSlide
+			time: alertTime
+		myLayers.frown.animate
+			properties:
+				y: myLayers.frown.y - alertYSlide
+			time: alertTime
+		myLayers.wineDetails.animate
+			properties:
+				y: myLayers.wineDetails.y - alertYSlide
+			time: alertTime
+		myLayers.filters.animate
+			properties:
+				y: myLayers.filters.y - alertYSlide
+			time: alertTime
+		myLayers.menu.animate
+			properties:
+				y: myLayers.menu.y - alertYSlide
+			time: alertTime
+		myLayers.header.animate
+			properties:
+				y: (myLayers.header.y - alertYSlide)
+			time: alertTime			
 			
