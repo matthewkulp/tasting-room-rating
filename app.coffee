@@ -33,7 +33,7 @@ clickBox = new Layer
 # noSymbol.backgroundColor = 'transparent'
 	
 # Creating arrays to cycle through
-phrases = [likedIt, lovedIt, notForMe]
+phrases = [notForMe, likedIt, lovedIt]
 symbols = [frown, okay, heart]
 numberOfCycles = phrases.length
 
