@@ -83,6 +83,31 @@ window.__imported__["2014.8.21_rating-copy/layers.json.js"] = [
       {
         "maskFrame" : null,
         "visible" : true,
+        "id" : "C868FB78-BDD6-4467-B378-732AB9C40CA9",
+        "children" : [
+
+        ],
+        "image" : {
+          "path" : "images\/noRating-C868FB78-BDD6-4467-B378-732AB9C40CA9.png",
+          "frame" : {
+            "y" : 691,
+            "x" : 172,
+            "width" : 383,
+            "height" : 44
+          }
+        },
+        "imageType" : "png",
+        "layerFrame" : {
+          "y" : 691,
+          "x" : 172,
+          "width" : 383,
+          "height" : 44
+        },
+        "name" : "noRating"
+      },
+      {
+        "maskFrame" : null,
+        "visible" : true,
         "id" : "2BAD04CC-042B-47BA-90D2-2089EFE91D24",
         "children" : [
 

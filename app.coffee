@@ -3,6 +3,8 @@ myLayers = Framer.Importer.load "imported/2014.8.21_rating-copy"
 # Rating Interaction
 
 # Setting Sketch layers as variables
+noRating = myLayers["noRating"]
+
 lovedIt = myLayers["lovedIt"]
 heart = myLayers["heart"]
 
@@ -27,6 +29,8 @@ clickBox = new Layer
 	height: 84
 	backgroundColor: 'none'
 
+# noSymbol = new Layer
+# noSymbol.backgroundColor = 'transparent'
 	
 # Creating arrays to cycle through
 phrases = [notForMe, likedIt, lovedIt]
@@ -34,6 +38,10 @@ symbols = [frown, okay, heart]
 numberOfCycles = phrases.length
 
 # Setting important starting properties.
+notForMe.opacity = 0
+frown.opacity = 0
+frown.rotationZ = -90
+
 lovedIt.opacity = 0
 heart.opacity = 0
 heart.rotationZ = -90
@@ -53,6 +61,12 @@ j = 0
 clickBox.on Events.Click, ->
 	modulusS = i % numberOfCycles
 	if i == 1 then openScreen() else
+	
+	noRating.animate
+		properties:
+			opacity: 0
+		time: phraseAnimationTime
+	
 	firstAnimation(symbols[modulusS])	
 	i++
 
@@ -106,7 +120,7 @@ alertYSlide = 70
 alertTime = .15
 openScreen = ->
 	alertNotActive = false
-	utils.delay 1.5, ->
+	utils.delay 2.5, ->
 		clickBox.animate
 			properties:
 				y: clickBox.y + alertYSlide
